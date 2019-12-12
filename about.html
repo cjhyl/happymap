@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>happymap</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="./css/main.css">
+	</head>
+	<body class="home">
+		<header>
+			<div class="header">
+				<a class="logo" href="./">
+		        	<img src="./images/logo.png" alt="" >
+		        </a>
+		        <nav>
+					<ul>
+						<li class="sel"><a href="./about.html">关于我们</a></li>
+						<li><a href="./platform.html">开放平台</a></li>
+						<li><a href="./partner.html">合作伙伴</a></li>
+						<li><a href="./product.html">产品中心</a></li>
+					</ul>
+				</nav>
+				<div class="navBtn">···</div>
+			</div>
+			<ul class="navList">
+				<li><a href="./product.html">产品中心</a></li>
+				<li><a href="./partner.html">合作伙伴</a></li>
+				<li><a href="./platform.html">开放平台</a></li>
+				<li class="sel"><a href="./about.html">关于我们</a></li>
+			</ul>
+		</header>
+		<article>
+			<div class="content about">
+				<ul class="leftNav" data-len="3">
+					<li data-target="introduceUs"><a href="javascript:void(0)">公司介绍</a></li>
+					<li data-target="contactUs"><a href="javascript:void(0)">联系我们</a></li>
+					<li data-target="joinUs"><a href="javascript:void(0)">加入我们</a></li>
+				</ul>
+				<div class="rightContent">
+					<!--公司介绍-->
+					<div class="area introduceUs">
+						<p id="introduceUs" class="title1" style="padding-bottom:30px;">公司介绍</p>
+						<div class="map"></div>
+						<p class="txt1">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;乐图 happymap 一直致力于研究室内地图及相关产品的高科技企业。在中国，拥有“2D/3D地图的显示及指引或导航方法”的国家发明专利技术，专注于室内地图在人工智能、大数据、云计算及物联网等方面的应用。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;公司拥有“室内地图”、“室内定位”、“室内导航”、“位置服务”四大产品，产品广泛应用于购物中心、机场、写字楼、医院等大型室内空空间。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;速度、成本、品质和服务是公司得以快速发展的核心价值理念，让我们始终站在行业的前沿。致力于成为全球领先的室内地图综合服务商，引领物联网新时代。
+						</p>
+					</div>
+					<!--公司介绍 end-->
+					<!--联系我们-->
+					<div class="area contactUs">
+						<p id="contactUs" class="title1">联系我们</p>
+						<div class="formBg">
+							<form id="contactUsForm">
+								<div class="title1">与happymap取得联系</div>
+								<p class="labelTxt">电话：+86 0755 8285702&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上班时间：8：30am — 5：30pm周一至周五</p>
+								<input type="text" placeholder="姓名" id="name" name="name" />
+								<div class="tip"></div>
+								<input type="text" placeholder="电子邮箱" id="mail" name="mail" />
+								<div class="tip"></div>
+								<input type="text" placeholder="手机" id="phone" name="phone" />
+								<div class="tip"></div>
+								<p class="labelTxt">希望与我取得联系的方式：</p>
+								<div class="radioBg">
+									<input type="radio" id="toMail" value="toMail" name="contactWay" checked="checked" />
+									<label for="toMail">电子邮箱</label>
+									<input type="radio" id="toPhone" value="toPhone" name="contactWay" />
+									<label for="toPhone">手机</label>
+								</div>
+								<textarea id="msg" name="msg"></textarea>
+								<div class="tip"></div>
+								<div class="btnsBg">
+									<button id="sendMsg" class="btn submit">发送信息</button>
+									<button id="resetForm" class="btn reset gray">重置</button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<!--联系我们 end-->
+					<!--加入我们-->
+					<div class="area joinUs">
+						<p id="joinUs" class="title1" style="padding-bottom:30px;">加入我们</p>
+						<div class="map"></div>
+						<p class="txt1" style="padding-bottom:400px;">
+happymap 一直在寻找有创造力的人才加盟我们的团队。如果您对我们的事业感兴趣，请和我们的HR联系。<br />
+Email:hr@happyindoormap.com
+						</p>
+					</div>
+					<!--加入我们 end-->
+				</div>
+			</div>
+		</article>
+		
+		<footer>
+			<div class="footer">
+				<div>
+					<a href="http://www.miitbeian.gov.cn ">粤ICP备09008348号</a>
+			        <br>
+			        <a href="javascript:void(0); ">COPYRIGHT © 2017 HAPPYMAP INC.保留所有权利</a>
+				</div>
+				<div>
+					<a class="lang_cn " href="javascript:void(0); ">
+				        <img src="./images/zggq.png " alt=" ">&nbsp
+				        <span>中文</span>
+				    </a>
+				</div>
+			</div>
+		</footer>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script src="./js/header.js"></script>
+		<script src="./js/leftNav.js"></script>
+		<script src="./js/about.js"></script>
+	</body>
+</html>

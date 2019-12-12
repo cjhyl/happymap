@@ -1,0 +1,383 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<title>重庆长嘉汇购物公园</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, minimum-scale=1">
+	<link rel="stylesheet" type="text/css" href="starability-minified/starability-all.min.css" />
+	<script>
+		document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+	</script>
+	<link rel="stylesheet" type="text/css" href="css/reset.css?t=20170807">
+	<link rel="stylesheet" type="text/css" href="css/index1.css?t=20170807">
+	<link rel="stylesheet" href="./css/swiper-3.4.2.min.css">
+</head>
+
+<body ontouchstart>
+	<div id='loadings'>
+		<!-- <div class="load_contant">
+			<div class="spinner">
+				<div class="rect1"></div>
+				<div class="rect2"></div>
+				<div class="rect3"></div>
+				<div class="rect4"></div>
+				<div class="rect5"></div>
+			</div>
+			<div class="load_pic">加载中</div>
+		</div> -->
+		<div class="load_xun">
+			<div class="xun_pic">
+				<div class="pic_container"></div>
+			</div>
+			<div class="load_text">
+				加载中
+			</div>
+		</div>
+	</div>
+	<!--地图容器-->
+	<div id="mapContainer"></div>
+	<!-- <div class="gSearch">
+        <span>目的地</span>
+        <input type="text" readonly="readonly">
+    </div> -->
+	<!-- 放大缩小模块 -->
+	<div class="scale">
+		<div class="biger" onclick="biger()">
+		</div>
+		<div class="smaller" onclick="smaller()">
+		</div>
+		<div class="mark" onclick="showMark()"></div>
+	</div>
+	<!--3D切换模块-->
+	<div class="map_toggle">
+		<div class="zhinan"></div>
+		<div class="map_three" onclick="mapToggle()">3D</div>
+	</div>
+	<!--//设置模块-->
+	<div class="setPoint">
+		<div class="toper">
+			<div class="left">
+				<p class="pointName"></p>
+				<p class="pointFloor"></p>
+			</div>
+			<div class="right">
+				<div class="setEnd" onclick="setEnd()">
+				</div>
+				<div class="setStart" onclick=" setStart() ">
+				</div>
+
+			</div>
+		</div>
+		<div class="share" onclick="share(1)">发送位置给好友</div>
+	</div>
+	<!--分享模块-->
+	<div class="shares">
+		<div class="share_top clearfix">
+			<div class="share_icon share_icon1" onclick="shareTimeline()" id="shareMessage">朋友圈</div>
+			<div class="share_icon share_icon2" onclick="shareMessage()" id="shareTimeline">微信好友</div>
+			<div class="share_icon share_icon3" onclick="shareQQ()" id="shareQQ">QQ好友</div>
+		</div>
+		<div class="quxiao" onclick="share(2)">取消</div>
+	</div>
+	<div class="share_shade" onclick="noShow()">
+		<div class="arrows"></div>
+		<div class="neirong">
+			<div class="gesture">
+				点击右上角分享到
+			</div>
+			<div class="share_pic share_weixin">朋友圈</div>
+		</div>
+	</div>
+	<!--模拟导航页面-->
+	<div class="mo_daohang">
+		<audio autoplay preload id="mo_yuyin" class="mo_yuyin"></audio>
+		<div class="mo_toper">
+			<div class="center_box">
+				<div class="mo_pic">
+				</div>
+				<span class="mo_text"></span>
+			</div>
+		</div>
+		<div class="mo_footerS"></div>
+		<div class="mo_footerE"></div>
+	</div>
+	<div class="mo_tishi">
+		<div class="mo_left">
+			<span onclick="moClose()"></span>
+		</div>
+		<div class="mo_center" onclick="mo_goOn()">正在导航</div>
+		<div class="mo_right">
+			<span onclick="yuyin(this)"></span>
+		</div>
+	</div>
+	<!-- 模拟导航结束页 -->
+	<div class="mo_end">
+		<div class="mo_end_text">你已到达目的地</div>
+		<div class="mo_end_message">
+			<div>
+				<p class="mo_end_q">
+				</p>
+				<p class="mo_end_z">
+				</p>
+			</div>
+			<p>
+				距离
+				<span class="mo_distance"></span>米 耗时
+				<span class="mo_end_time"></span>秒</p>
+		</div>
+		<div class="mo_end_rank">
+			<div class="starability-container">
+				<form>
+					<legend>给本次导航打分
+						<span class="mo_end_close" onclick="moEndClose()"></span>
+					</legend>
+					<fieldset class="starability-basic">
+						<input type="radio" id="rate1-1" name="rating" value="1" />
+						<label for="rate1-1" title="Terrible"></label>
+						<input type="radio" id="rate2-1" name="rating" value="2" />
+						<label for="rate2-1" title="Not good"></label>
+						<input type="radio" id="rate3-1" name="rating" value="3" />
+						<label for="rate3-1" title="Average"></label>
+						<input type="radio" id="rate4-1" name="rating" value="4" />
+						<label for="rate4-1" title="Very good"></label>
+						<input type="radio" id="rate5-1" name="rating" value="5" />
+						<label for="rate5-1" title="Amazing"></label>
+					</fieldset>
+				</form>
+			</div>
+			<div class="mo_end_tips">
+				<button class="taptap">体验流畅</button>
+				<button class="taptap">贴心提示</button>
+				<button class="taptap">定位不准</button>
+				<button class="taptap">信息有误</button>
+			</div>
+			<div class="mo_end_textarea">
+				<textarea class="mo_end_textaabb" name="" id="" placeholder="其他想说的"></textarea>
+			</div>
+			<div class="mo_end_btn">
+				<button onclick="moEndSend()">提交</button>
+			</div>
+		</div>
+
+	</div>
+	<div class="thanks_tips">感谢反馈</div>
+	<!-- 寻路失败弹框 -->
+	<div class="searchPathFailBox">
+		<div class="searchPathFail">
+			<div>温馨提示
+				<span class="searchPathFailClose" onclick="searchPathFailClose()"></span>
+			</div>
+
+			<div class="searchPathFailMsg">寻路错误</div>
+			<div class="searchPathFailBtn" onclick="searchPathFailClose()">确定</div>
+		</div>
+	</div>
+	<!--//显示搜索模块-->
+	<div class="operation">
+		<div class="selectPoint">
+			<input type="text" id="startPoint" onfocus="searchHtml(1)">
+		</div>
+		<div class="reverse" onclick="reverse()"></div>
+		<div class="goback" onclick="goback()"></div>
+		<div class="selectPoint">
+			<input type="text" id="endPoint" onfocus="searchHtml(1)">
+		</div>
+	</div>
+	<!--寻路-->
+	<div class="setPoint1">
+		<div class="tishi">
+		</div>
+		<div class="daohang">
+			<button class="go" disabled='disabled' onclick="go()" type="button">开始导航</button>
+			<button class=mogo disabled='disabled' onclick='mogo()' type="button">模拟导航</button>
+		</div>
+	</div>
+	<!-- 新楼层切换模块tx版 -->
+	<div class="floorToggleBox">
+		<!-- B区 -->
+		<div class="floorToggleContent1">
+			<div class="floorToggle">
+				B区
+			</div>
+			<div class="floorToggleUl">
+				<li class="floorToggleUl_List" id="floorToggleUl_List">
+					<i class="floorToggleMinUl_i"></i>
+					<button name="btn" data="C107655C-8783-4FCE-9085-3AE764B41681" value="L10B" id="L10B">L10</button>
+				</li>
+				<li class="floorToggleUl_List" id="floorToggleUl_List">
+					<i class="floorToggleMinUl_i"></i>
+					<button name="btn" data="B2FE5708-961A-42CE-981E-604053852442" value="L9B" id="L9B">L9</button>
+				</li>
+				<li class="floorToggleUl_List" id="floorToggleUl_List">
+					<i class="floorToggleMinUl_i"></i>
+					<button name="btn" data="5716E6F1-EF37-4FE3-99ED-437054CFA2B0" value="L8B" id="L8B">L8</button>
+				</li>
+				<li class="floorToggleUl_List" id="floorToggleUl_List">
+					<i class="floorToggleMinUl_i"></i>
+					<button name="btn" data="EF87A474-6111-4FEE-890A-C8C7461B9C42" value="L7B" id="L7B">L7</button>
+				</li>
+				<li class="floorToggleUl_List" id="floorToggleUl_List">
+					<i class="floorToggleMinUl_i"></i>
+					<button name="btn" data="A5D821D8-2D3A-4056-9877-F2805F711B9B" value="L6B" id="L6B">L6</button>
+				</li>
+				<li class="floorToggleUl_List" id="floorToggleUl_List">
+					<i class="floorToggleMinUl_i"></i>
+					<button name="btn" data="F73D3009-5E98-4BDD-91B7-D63A8106F0BB" value="L5B" id="L5B">L5</button>
+				</li>
+				<li class="floorToggleUl_List" id="floorToggleUl_List">
+					<i class="floorToggleMinUl_i"></i>
+					<button name="btn" data="23F552A1-7F76-4533-BBFD-55C726D6F705" value="L4B" id="L4B">L4</button>
+				</li>
+				<li class="floorToggleUl_List" id="floorToggleUl_List">
+					<i class="floorToggleMinUl_i"></i>
+					<button name="btn" data="53DF288D-B11D-4830-8C24-043C885C66EC" value="L3B" id="L3B">L3</button>
+				</li>
+				<li class="floorToggleUl_List" id="floorToggleUl_List">
+					<i class="floorToggleMinUl_i"></i>
+					<button name="btn" data="682C49F0-7B02-4EF8-B18E-25E9D9BE8FB1" value="L2B" id="L2B">L2</button>
+				</li>
+				<li class="floorToggleUl_List" id="floorToggleUl_List">
+					<i class="floorToggleMinUl_i"></i>
+					<button name="btn" data="A2E03A0E-A9EA-4F7D-9BBB-2F6A69C10B2F" value="L1B" id="L1B">L1</button>
+				</li>
+			</div>
+		</div>
+		<!-- A区 -->
+		<div class="floorToggleContent2">
+			<div class="floorToggle">
+				A区
+			</div>
+			<div class="floorToggleUl">
+				<li class="floorToggleUl_List" id="floorToggleUl_List">
+					<i class="floorToggleMinUl_i"></i>
+					<button name="btn" data="682C49F0-7B02-4EF8-B18E-25E9D9BE8FB1" value="L6A" id="L6A">L6</button>
+				</li>
+				<li class="floorToggleUl_List" id="floorToggleUl_List">
+					<i class="floorToggleMinUl_i"></i>
+					<button name="btn" data="A2E03A0E-A9EA-4F7D-9BBB-2F6A69C10B2F" value="L5A" id="L5A">L5</button>
+				</li>
+				<li class="floorToggleUl_List" id="floorToggleUl_List">
+					<i class="floorToggleMinUl_i"></i>
+					<button name="btn" data="977C2FC3-057C-4A1A-A366-39F1B60AB782" value="L4A" id="L4A">L4</button>
+				</li>
+				<li class="floorToggleUl_List" id="floorToggleUl_List">
+					<i class="floorToggleMinUl_i"></i>
+					<button name="btn" data="14B510F1-25A6-4CE4-96A4-55A7A97AFDB1" value="LM3A" id="LM3A">LM3</button>
+				</li>
+				<li class="floorToggleUl_List" id="floorToggleUl_List">
+					<i class="floorToggleMinUl_i"></i>
+					<button name="btn" data="0EB180C7-CE59-4BF7-9668-857A896097CA" value="L3A" id="L3A">L3</button>
+				</li>
+				<li class="floorToggleUl_List" id="floorToggleUl_List">
+					<i class="floorToggleMinUl_i"></i>
+					<button name="btn" data="4635B377-0042-4FD8-A00D-EE86E7C75E85" value="L2A" id="L2A">L2</button>
+				</li>
+				<li class="floorToggleUl_List" id="floorToggleUl_List">
+					<i class="floorToggleMinUl_i"></i>
+					<button name="btn" data="8C0A2FD4-B311-4640-A6C2-AE19ECB1F4C3" value="LM1A" id="LM1A">LM1</button>
+				</li>
+				<li class="floorToggleUl_List" id="floorToggleUl_List">
+					<i class="floorToggleMinUl_i"></i>
+					<button name="btn" data="F497DC73-8040-4CC4-A3F6-4B2CD01A3754" value="L1A" id="L1A">L1</button>
+				</li>
+			</div>
+		</div>
+	</div>
+
+	<div class="floorToggleMinUl">
+	</div>
+
+
+
+
+	<!--//楼层切换模块-->
+	<div class="changeF swiper-container swiper-container1">
+		<ul class="swiper-wrapper swiper-wrapper1">
+		</ul>
+	</div>
+	<div class="inputName">
+		<div class="swiper-container swiper-container3">
+		</div>
+	</div>
+	<!-- <div class="floorToggle floorEnd " onclick="floorEnd()"></div>
+	<div class="floorToggle floorStart floor_active" onclick="floorStart()"></div> -->
+
+
+	<!-- 提示信息模块 -->
+	<div class="message">
+		<div class="waiting">
+			<!-- <img src="./images/5.wifi.png" alt="" /> -->
+			<!-- <span class="wait_text">正在加载地图,请稍候...</span> -->
+			正在加载地图,请稍候...
+		</div>
+		<div class="looking">
+			<span class="look_text"></span>
+		</div>
+	</div>
+	<!-- 指南针 -->
+	<div class="compass">
+	</div>
+	<!-- 查看帮助页面 -->
+	<!-- <div class="lookHelp">
+        <p>打开网络连接查看是否连接了CSIFS</p>
+        <p></p>
+    </div> -->
+
+	<!-- 搜索页面 -->
+	<div class="gSearch">
+		<span onclick="searchBack()" id="searchSpan"></span>
+		<input type="text" onfocus="goSearch(this)" id="text" onblur="this.placeholder='输入商户关键字搜索'" placeholder='输入商户关键字搜索'>
+		<div class="searchBtn" onclick="searchBtn()">搜索</div>
+	</div>
+	<div class="main">
+		<div class="main_search">
+			<div class='main_container'>
+				<div class="hot_search">
+					<div class="hot_title">
+						热门搜索
+					</div>
+					<div class="hot_contant">
+						<span class="spanSearch">星巴克</span>
+						<span class="spanSearch">NIKE</span>
+					</div>
+				</div>
+				<div class="his_search">
+					<div class="his_title">
+						<span class="his_left">历史记录</span>
+						<span class="his_right" onclick="clearHistory()">清空历史记录</span>
+					</div>
+					<div class="his_list">
+						<ul>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ceshi">
+		<div class="mac">
+		</div>
+		<div class="bugcontainer swiper-container swiper-container4">
+			<ul class="swiper-wrapper swiper-wrapper4">
+			</ul>
+		</div>
+		<!-- <div class="testclose" onclick="testClose()">
+        </div> -->
+	</div>
+	<div class="deBug" onclick="testClose()">开启</div>
+	<script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+	<script src="./js/map.min.js"></script>
+	<!--<script src="https://map.ckiosk.cn/APIDOC/map.min.js"></script> -->
+	<script src="./js/swiper-4.1.0.min.js"></script>
+	<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+	<script src="./js//module-toggleFloorBtn.js?t=20180206"></script>
+	<script type="text/javascript" src="./js/index.js?id=1128989 "></script>
+	<script type="text/javascript" src="./js/wxshare.js?id=22111 "></script>
+	<script type="text/javascript" src="./js/jQuery.speech.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>happymap</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="./css/main.css">
+		<link rel="stylesheet" href="./css/ztree/zTreeStyle.css">
+		<link href="./codemirror/lib/codemirror.css" rel="stylesheet" type="text/css">
+		<link id="codemirrorcss" href="" rel="stylesheet" type="text/css">
+		<link href="./codemirror/addon/display/fullscreen.css" rel="stylesheet" type="text/css">
+	</head>
+	<body class="home">
+		<header>
+			<div class="header">
+				<a class="logo" href="./">
+		        	<img src="./images/logo.png" alt="" >
+		        </a>
+		        <nav>
+					<ul>
+						<li><a href="./about.html">关于我们</a></li>
+						<li class="sel"><a href="./platform.html">开放平台</a></li>
+						<li><a href="./partner.html">合作伙伴</a></li>
+						<li><a href="./product.html">产品中心</a></li>
+					</ul>
+				</nav>
+				<div class="navBtn">···</div>
+			</div>
+			<ul class="navList">
+				<li><a href="./product.html">产品中心</a></li>
+				<li><a href="./partner.html">合作伙伴</a></li>
+				<li class="sel"><a href="./platform.html">开放平台</a></li>
+				<li><a href="./about.html">关于我们</a></li>
+			</ul>
+		</header>
+		
+		<article>
+			<div class="content platform">
+				<div id="iframeBg" class="frameBg">
+					<iframe id="platformIframe" name="platformIframe" frameborder="0" scrolling="auto" width="100%"  height="100%">
+					</iframe>
+				</div>
+				<div class="codeBg">
+					<div class="codeVisible" style="display:none;">
+						<div data-status="open" id="codeVisible" class="btn"><span style="position:relative;left:-7px;">〈</span></div>
+					</div>
+					<div class="top">
+						<div class="title">源代码</div>
+						<div class="oper" style="position:relative;">
+							<button id="oper_list" class="list"><span>列表</span></button>
+							<a href="https://map.ckiosk.cn/APIDOC/GIM.Map3D.html" target="_blank" id="oper_help" class="help"><span>帮助</span></a>
+							<button id="oper_full" class="full"><span>全屏</span></button>
+							<button id="oper_refresh" class="refresh"><span>刷新</span></button>
+							<button id="oper_run" class="run"><span>运行</span></button>
+							<select id="oper_change">
+								<option>default</option>
+								<option>eclipse</option>
+								<option>mdn-like</option>
+								<option>monokai</option>
+								<option>neo</option>
+								<option>ssms</option>
+							</select>
+							<span class="label">风格切换：</span>
+						</div>
+					</div>
+					<div class="helpDialog" style="display:none;">
+						<div class="top">
+							<div class="title">帮助</div>
+							<div class="close">X</div>
+						</div>
+						<div class="content"></div>
+					</div>
+					<div id="codeDiv" class="code CodeMirror cm-s-default">
+						<form action="" method="post">
+						    <textarea id="code" name="code">
+						    </textarea>
+						</form>
+					</div>
+				</div>
+				<div id="platformTree" class="treeBg ztree smHide"></div>
+			</div>
+		</article>
+		
+		<footer>
+			<div class="footer">
+				<div>
+					<a href="http://www.miitbeian.gov.cn ">粤ICP备09008348号</a>
+			        <br>
+			        <a href="javascript:void(0); ">COPYRIGHT © 2017 HAPPYMAP INC.保留所有权利</a>
+				</div>
+				<div>
+					<a class="lang_cn " href="javascript:void(0); ">
+				        <img src="./images/zggq.png " alt=" ">&nbsp;
+				        <span>中文</span>
+				    </a>
+				</div>
+			</div>
+		</footer>
+		<script src="./js/jquery-3.2.1.min.js"></script>
+		<script src="./js/jquery.ztree.min.js"></script>
+		<!-- CodeMirror核心文件 -->
+		<script type="text/javascript" src="codemirror/lib/codemirror.js"></script>
+		<!-- CodeMirror对Javascript、XML、CSS的语言支持-->
+		<script type="text/javascript" src="codemirror/mode/javascript/javascript.js"></script>
+		<script type="text/javascript" src="codemirror/mode/xml/xml.js"></script>
+		<script type="text/javascript" src="codemirror/mode/css/css.js"></script>
+		<script type="text/javascript" src="codemirror/mode/htmlmixed/htmlmixed.js"></script>
+		<!-- CodeMirror的显示行数、括号匹配和全屏插件 -->
+		<script type="text/javascript" src="codemirror/addon/selection/active-line.js"></script>
+		<script type="text/javascript" src="codemirror/addon/edit/matchbrackets.js"></script>
+		<script type="text/javascript" src="codemirror/addon/display/fullscreen.js"></script>
+		<script src="./js/header.js"></script>
+		<script src="./js/drag.js"></script>
+		<script src="./js/baseHtmlCode.js"></script>
+		<script src="./js/platform.js"></script>
+	</body>
+</html>

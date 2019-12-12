@@ -1,0 +1,705 @@
+        @charset "utf-8";
+        /* CSS Document */
+        
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        #mapContainer {
+            width: 100%;
+            height: 100%;
+            /* width: 10rem;
+            height: 17.786667rem */
+            /*width: 5rem;
+            height: 10rem;*/
+        }
+        /*#mapContainer canvas:first-child {
+            width: 50%!important;
+            height: 50%!important;
+        }*/
+        
+        .swiper-container1 {
+            width: 1.066667rem;
+            height: 4.533333rem;
+            position: fixed!important;
+            bottom: .4rem;
+            left: .266667rem;
+            border: none;
+            background-color: #ffffff;
+        }
+        
+        .swiper-wrapper1 {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .swiper-slide1 {
+            width: 100%!important;
+            height: .906667rem!important;
+            line-height: .906667rem;
+            font-size: .333333rem;
+            opacity: 0.3
+        }
+        
+        .swiper-slide-prev,
+        .swiper-slide-next {
+            opacity: .5
+        }
+        
+        .changeF button {
+            width: 100%;
+            height: 100%;
+            border: none;
+            color: #777777;
+            font-size: .333333rem;
+            background-color: #ffffff;
+        }
+        
+        .swiper-slide1.swiper-slide-active {
+            opacity: 1;
+            width: 95%!important;
+            border-left: .053333rem solid #69d5c5;
+            /*border-top: .053333rem solid #69d5c5;*/
+            border-right: .053333rem solid #69d5c5;
+        }
+        
+        .swiper-slide-active button {
+            color: #69d5c5;
+        }
+        
+        button:focus {
+            outline: none;
+        }
+        
+        .setPoint {
+            width: 86%;
+            height: 1.7rem;
+            padding: 0 .4rem 0 .4rem;
+            position: fixed;
+            bottom: 0;
+            left: .266667rem;
+            /*font-size: .373333rem;*/
+            background-color: #ffffff;
+            border-radius: .08rem;
+            display: none;
+            opacity: .9;
+        }
+        
+        .setPoint .left {
+            float: left;
+            width: 50%;
+        }
+        
+        .setPoint .left p {
+            line-height: .6rem;
+            padding-top: 0.2rem;
+        }
+        
+        .setPoint .left p:first-child {
+            font-size: .373333rem;
+            color: #666666;
+        }
+        
+        .setPoint .left p:last-child {
+            font-size: .373333rem;
+            color: #AAAAAA;
+        }
+        
+        .right {
+            float: left;
+            width: 50%
+        }
+        
+        .setPoint .right .setStart {
+            background: url('../images/起点.png') center center no-repeat;
+            width: 1.173333rem;
+            height: 1.7rem;
+            background-size: 1.173333rem 1.466667rem;
+            float: right;
+            margin-right: 4%
+        }
+        
+        .setPoint .right .setEnd {
+            background: url('../images/终点.png') center center no-repeat;
+            width: 1.173333rem;
+            height: 1.7rem;
+            background-size: 1.173333rem 1.466667rem;
+            float: right;
+        }
+        
+        .operation {
+            width: 80%;
+            height: 1.7rem;
+            background-color: #69d5c5;
+            padding: .2rem 1rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            opacity: .9;
+            display: none;
+        }
+        
+        .operation .selectPoint {
+            width: 100%;
+            height: .666667rem;
+            border-radius: .08rem
+        }
+        
+        .operation .selectPoint input {
+            width: 95%;
+            height: 100%;
+            border-radius: .08rem;
+            padding-left: .4rem;
+            font-size: .373333rem;
+            color: #69d5c5;
+            float: left;
+            margin-bottom: .2rem;
+            font-family: "Microsoft YaHei", "iconfont", "FontAwesome" !important;
+        }
+        
+        .selectPoint:first-child::before {
+            content: '从';
+            width: .4rem;
+            display: inline-block;
+            height: .666667rem;
+            line-height: .666667rem;
+            position: absolute;
+            top: .252222rem;
+            left: .266667rem;
+            font-size: .466667rem;
+            color: #ffffff;
+        }
+        
+        .selectPoint:last-child::before {
+            content: '到';
+            width: .4rem;
+            display: inline-block;
+            height: .666667rem;
+            line-height: .666667rem;
+            position: absolute;
+            top: 1.2rem;
+            left: .266667rem;
+            font-size: .466667rem;
+            color: #ffffff;
+        }
+        
+        .operation .reverse {
+            width: .453333rem;
+            height: .453333rem;
+            background: url('../images/替换.png');
+            position: absolute;
+            top: 50%;
+            right: .266667rem;
+            margin-top: -.226667rem;
+            background-size: contain;
+        }
+        
+        .setPoint1 {
+            width: 8.666667rem;
+            height: 1.333333rem;
+            padding: 0 .4rem 0 .4rem;
+            position: fixed;
+            bottom: 0;
+            left: .266667rem;
+            /*font-size: .373333rem;*/
+            background-color: #ffffff;
+            border-radius: .08rem;
+            display: none;
+            opacity: .9;
+        }
+        
+        .setPoint1 .tishi {
+            line-height: 1.333333rem;
+            font-size: .48rem;
+            height: 100%;
+            color: #aaaaaa;
+            width: 4rem;
+            float: left;
+        }
+        
+        .setPoint1 .daohang {
+            width: 4.666667rem;
+            float: left;
+            height: 100%;
+            position: relative;
+        }
+        
+        .setPoint1 .daohang .go {
+            display: block;
+            padding: .133333rem;
+            width: .8rem;
+            height: .8rem;
+            font-size: .293333rem;
+            background-color: #69d5c5;
+            color: #ffffff;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            margin-top: -0.5rem;
+            border-radius: .08rem;
+        }
+        
+        .zhinan {
+            width: .773333rem;
+            height: .773333rem;
+            position: fixed;
+            z-index: 2000;
+            right: .266667rem;
+            /*top: 13.066667rem;*/
+            bottom: 4.266667rem;
+        }
+        
+        #zhinan {
+            width: 100%;
+            height: 100%
+        }
+        
+        .gSearch {
+            width: 8rem;
+            height: .933333rem;
+            position: fixed;
+            top: .266667rem;
+            /*left: .266667rem;*/
+            left: 50%;
+            margin-left: -4rem;
+            /*outline: none;*/
+            background: white;
+            /*outline: none;*/
+            /*border: 0rem;*/
+            border-radius: 6px;
+            /*border: .013333rem solid #ffffff;*/
+        }
+        
+        .gSearch span {
+            position: absolute;
+            top: .053333rem;
+            left: 0;
+            z-index: 10;
+            font-size: .373333rem;
+            display: block;
+            /*width: 1rem;*/
+            height: 100%;
+            padding-left: 1rem;
+            line-height: .933333rem;
+            color: #cccccc;
+        }
+        
+        .gSearch span::before {
+            content: '';
+            display: inline-block;
+            width: .453333rem;
+            height: .453333rem;
+            background: url('../images/sousuo.png');
+            background-size: contain;
+            position: absolute;
+            top: 50%;
+            left: .333333rem;
+            margin-top: -0.226667rem;
+        }
+        
+        .gSearch input {
+            width: 8rem;
+            height: 100%;
+            outline: none;
+            border: .013333rem solid #cccccc;
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: .293333rem;
+            text-align: center;
+            border-radius: .08rem;
+        }
+        
+        #loadings,
+        #loading {
+            z-index: 99999;
+            background-color: #cccccc;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: fixed;
+            opacity: .6
+        }
+        
+        #loading {
+            background-color: #ffffff;
+            opacity: 1;
+            /*height: 1.7rem;*/
+            top: 2.1rem;
+            height: 15.68rem;
+            display: none;
+        }
+        
+        #loading::before,
+        #loadings::before {
+            content: '';
+            display: block;
+            width: 1.333333rem;
+            height: 1.333333rem;
+            background: url(http://files.ckiosk.cn/map/n/sources/load.gif) no-repeat;
+            background-size: contain;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -0.666667rem;
+            margin-left: -0.666667rem
+        }
+        
+        .main {
+            background-color: #f9f9f9;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10000;
+            height: 100%;
+            /*min-height: 17.786667rem;*/
+            display: none;
+            overflow: scroll;
+        }
+        
+        .main .goSearch {
+            width: 8rem;
+            height: .933333rem;
+            /*margin: 0 auto;*/
+            position: relative;
+            margin-left: .4rem;
+            margin-top: .266667rem;
+            border-radius: .08rem;
+        }
+        
+        .main .goSearch .goBack {
+            width: .293333rem;
+            height: 100%;
+            float: left;
+            padding-right: .4rem;
+            position: relative;
+        }
+        
+        .main .goSearch .goBack span {
+            width: .293333rem;
+            height: .493333rem;
+            background: url('../images/fanhui.png');
+            position: absolute;
+            background-size: contain;
+            top: 50%;
+            left: 0;
+            margin-top: -0.24rem;
+        }
+        
+        .main .goSearch .going {
+            width: 7rem;
+            height: 100%;
+            float: left;
+            position: relative;
+        }
+        
+        .main .goSearch .going span {
+            position: absolute;
+            height: 100%;
+            top: .053333rem;
+            left: 0;
+            z-index: 10;
+            font-size: .373333rem;
+            display: block;
+            padding-left: 1rem;
+            line-height: .933333rem;
+            color: #cccccc;
+        }
+        
+        .main .goSearch .going span::before {
+            content: '';
+            display: inline-block;
+            width: .453333rem;
+            height: .453333rem;
+            background: url('../images/sousuo.png');
+            background-size: contain;
+            position: absolute;
+            top: 50%;
+            left: .333333rem;
+            margin-top: -0.226667rem;
+        }
+        
+        .main .goSearch input {
+            /*width: 9.413333rem;*/
+            width: 7rem;
+            /*width: 9.066667rem;*/
+            height: 100%;
+            outline: none;
+            border: .013333rem solid #cccccc;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding-left: .4rem;
+            font-size: .346667rem;
+            /*text-align: center;*/
+            border-radius: .08rem;
+        }
+        
+        .main .swiper-container2 {
+            /*width: 100%;*/
+            width: 9.813333rem;
+            /*height: 100%;*/
+            height: 5.266667rem;
+            margin-bottom: .266667rem
+        }
+        
+        .swiper-container2 .swiper-wrapper2 {
+            width: 100%;
+            /*height: 100%;*/
+            padding: .4rem .16rem .133333rem .16rem;
+            /*background-color: #ffffff;*/
+            font-size: .293333rem;
+        }
+        
+        .swiper-slide2 {
+            width: 100%;
+            height: 100%;
+            /*background-color: #ffffff;*/
+        }
+        
+        .swiper-slide2 ul {
+            width: 100%;
+            height: 100%;
+            /*background-color: #ffffff;*/
+        }
+        /*        
+        .shortcut {
+            font-size: .293333rem;
+            padding: .4rem .16rem .133333rem .16rem;
+            margin-bottom: .266667rem
+        }*/
+        
+        .shortcut ul li {
+            height: 1.573333rem;
+            padding: 0 .56rem .56rem;
+            float: left;
+            cursor: pointer;
+        }
+        
+        .shortcut ul li span {
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+        
+        .picture {
+            /*width: 1.08rem;*/
+            width: 1.08rem;
+            height: 1.08rem;
+            /*padding-left: .133333rem;*/
+            margin-left: .093333rem;
+            background: url('../images/预约挂号.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin-bottom: .133333rem
+        }
+        
+        .picture1 {
+            background: url('../images/取药.png');
+            background-size: contain;
+        }
+        
+        .picture2 {
+            background: url('../images/服务.png');
+            background-size: contain;
+        }
+        
+        .picture3 {
+            background: url('../images/收费.png');
+            background-size: contain;
+        }
+        
+        .picture4 {
+            background: url('../images/体检.png');
+            background-size: contain;
+        }
+        
+        .picture5 {
+            background: url('../images/8哺乳间.png');
+            background-size: contain;
+        }
+        
+        .picture6 {
+            background: url('../images/卫生间.png');
+            background-size: contain;
+        }
+        
+        .picture7 {
+            background: url('../images/报告.png');
+            background-size: contain;
+        }
+        
+        .swiper-pagination {
+            z-index: 11000
+        }
+        
+        .gohere .title {
+            /*padding-left: 1.386667rem;*/
+            /*width: 8.613333rem;*/
+            padding-left: 15%;
+            width: 85%;
+            font-size: .346667rem;
+            height: 1.173333rem;
+            position: relative;
+            line-height: 1.173333rem;
+            background-color: #ffffff;
+        }
+        
+        .gohere .title::before {
+            content: '';
+            display: inline-block;
+            width: .773333rem;
+            height: .773333rem;
+            background: url('../images/去门口icon.png');
+            background-size: contain;
+            position: absolute;
+            top: .2rem;
+            left: .4rem;
+        }
+        
+        .gohere1 .title::before {
+            background: url('../images/急诊icon.png');
+            background-size: contain;
+        }
+        
+        .gohere2 .title::before {
+            background: url('../images/诊疗区icon-.png');
+            background-size: contain;
+        }
+        
+        .gohere ul {
+            padding: .133333rem .346667rem;
+            font-size: .346667rem;
+            background-color: #F9F9F9;
+        }
+        
+        .gohere .contant ul li {
+            width: 2rem;
+            height: .746667rem;
+            line-height: .773333rem;
+            text-align: center;
+            margin: .133333rem;
+            float: left;
+            background-color: #ffffff;
+            color: #999999;
+            border: .013333rem solid #ffffff;
+            cursor: pointer;
+        }
+        
+        .inputName {
+            position: fixed;
+            /*bottom: -0.266667rem;*/
+            bottom: 0;
+            padding: 0 .4rem 0 .4rem;
+            left: .266667rem;
+            width: 8.666667rem;
+            background-color: #fff;
+            /*max-height: 3.533333rem;*/
+            /*overflow-x: scroll;*/
+            /*display: block;*/
+            display: none;
+            /*border-radius: .08rem .08rem 0 0;*/
+        }
+        
+        .inputName ul {
+            /*height: 7.2rem;*/
+            max-height: 3.466667rem;
+            /*min-height: 1.533333rem;*/
+            width: 100%;
+            overflow-x: scroll;
+        }
+        
+        .inputName ul .searchPoint {
+            padding: .066667rem 0 .066667rem .066667rem;
+            width: 8.666667rem;
+            /*height: 1rem;*/
+            position: relative;
+            background-color: #ffffff;
+            opacity: .9;
+        }
+        
+        .searchPoint .left {
+            float: left;
+            width: 4rem;
+        }
+        
+        .searchPoint .left p {
+            line-height: .4rem;
+        }
+        
+        .searchPoint .left p:first-child {
+            font-size: .32rem;
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            color: #666666;
+        }
+        
+        .searchPoint .left p:last-child {
+            font-size: .373333rem;
+            color: #AAAAAA;
+        }
+        
+        .searchPoint {
+            float: left;
+            width: 4.666667rem
+        }
+        
+        .searchPoint .right .setStart {
+            background: url('../images/起点.png') center center no-repeat;
+            width: 1.173333rem;
+            height: 1rem;
+            background-size: .666667rem;
+            float: right;
+            /*margin-right: .4rem*/
+        }
+        
+        .searchPoint .right .setEnd {
+            background: url('../images/终点.png') center center no-repeat;
+            width: 1.173333rem;
+            height: 1rem;
+            background-size: .666667rem;
+            float: right;
+        }
+        
+        .isShow {
+            width: 100%;
+            height: .533333rem;
+            background-color: #ffffff;
+            position: absolute;
+            top: -0.533333rem;
+            left: 0;
+            z-index: 10000;
+            border-radius: .08rem .08rem 0 0;
+        }
+        
+        .picbox {
+            /*content: '';*/
+            /*display: block;*/
+            width: .533333rem;
+            height: .533333rem;
+            position: absolute;
+            left: 50%;
+            margin-left: -0.266667rem;
+            background: url('../images/箭头 下.png');
+            background-size: contain;
+        }
+        
+        .clearfix:before,
+        .clearfix:after {
+            content: " ";
+            /*必须为空*/
+            display: table;
+        }
+        
+        .clearfix:after {
+            clear: both;
+        }
+        
+        .clearfix {
+            zoom: 1;
+            /*兼容IE浏览器*/
+        }
